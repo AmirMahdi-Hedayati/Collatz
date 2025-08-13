@@ -5,7 +5,7 @@
 
 
 // Maximum number of digits
-const int MAX_DIGITS = 1400 ;
+const int MAX_DIGITS = 580 ;
 
 // Big integer type: least significant digit at index 0
 typedef int BigInt[MAX_DIGITS];
@@ -138,8 +138,8 @@ int collatz_steps(const BigInt n) {
 }
 
 int main() {
-    std::ofstream output_file("Large_linear_AVG.txt");
-    int limit = 10000 ;
+    std::ofstream output_file("Large_linear.txt");
+    int limit = 4000 ;
     long long int Time = (limit / 10) * (limit / 10) * (limit/10) / 10 ;
     long long int n_count ;
     long long int count = 0 ;
@@ -157,8 +157,7 @@ int main() {
         copy_bigint(xp1, x);
         add1(xp1);
 
-        int avg = (collatz_steps(x) + collatz_steps(xm1) + collatz_steps(xp1)) / 3;
-        output_file << i << " " << avg << std::endl;
+        output_file << i << " " << collatz_steps(xm1) << std::endl;
         n_count = (i * 1ll * i* i) / Time ;
         if(n_count != count) {
         	count = n_count ;

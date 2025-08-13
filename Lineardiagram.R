@@ -1,5 +1,5 @@
 # خواندن داده‌ها از فایل خروجی C++
-data <- read.table("Large_linear_AVG.txt", header = FALSE)
+data <- read.table("Large_linear.txt", header = FALSE)
 colnames(data) <- c("n", "steps")
 
 # محاسبه دو برابر لگاریتم در مبنای چهار سوم
@@ -18,7 +18,7 @@ legend("topright", legend=c("Collatz Steps", "2*log4/3(n)"), col=c("red", "blue"
 # ...existing code...
 
 # ذخیره نمودار به عنوان فایل PNG
-png("Large_linear_AVG.png", width=1400, height=600)
+png("Large_linear.png", width=1400, height=600)
 
 plot(data$n, data$steps, col="red", pch=20, cex=0.6, xlab="n", ylab="Steps / 2*log4/3(n)")
 lines(data$n, data$l1, col="yellow", lwd=1.5)
